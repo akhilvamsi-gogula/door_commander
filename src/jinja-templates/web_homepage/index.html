@@ -34,6 +34,21 @@
         .admin {
             background-color: SlateBlue;
         }
+
+        .door-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--bulma-block-spacing);
+        }
+
+        .door-list form {
+            flex: 1 1 220px;
+        }
+
+        .door-list button {
+            margin: 0;
+            font-size: clamp(1rem, 4vw, 1.5rem);
+        }
     </style>
 {% endblock %}
 {% block body %}
@@ -50,7 +65,7 @@
                 (diese Nachricht verschwindet, wenn du im richtigen WLAN bist)
             </div>
         {% endif %}
-        <div>
+        <div class="door-list">
             {% for door in doors %}
                 {# <!-- {{ door.display_name }} - doorid: {{door.id}}, doormqttid: {{door.mqtt_id}} --> #}
                 {% if can_open_doors[door] %}
